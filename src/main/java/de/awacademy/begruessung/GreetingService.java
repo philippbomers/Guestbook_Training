@@ -30,7 +30,7 @@ public class GreetingService {
         return beitragRepository.findAll();
     }
 
-    public Beitrag getBeitrag(long id){
-        return beitragRepository.findById((int) id).get();
+    public Beitrag getBeitrag(int id) {
+        return beitragRepository.findById(id).orElseGet(Beitrag::new);
     }
 }
