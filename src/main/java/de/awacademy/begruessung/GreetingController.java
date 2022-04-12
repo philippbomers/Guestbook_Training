@@ -24,7 +24,7 @@ public class GreetingController {
     @GetMapping("/greeting")
     public String greetingForm(Model model) {
         model.addAttribute("greeting", new Greeting());
-        model.addAttribute("greetingList", greetingService.getList());
+        model.addAttribute("greetingList", this.greetingService.getList());
         return "greeting";
     }
 
@@ -33,15 +33,15 @@ public class GreetingController {
         if (bindingResult.hasErrors()) {
             return "greeting";
         }
-        /*greeting.setId(greetingService.defineId());*/
+
         greetingService.addGreeting(greeting);
-        model.addAttribute("greetingList", greetingService.getList());
+        model.addAttribute("greetingList", this.greetingService.getList());
         return "title";
     }
 
     @GetMapping("/{id}/detail")
     public String detail(Model model, @PathVariable long id) {
-        model.addAttribute("greetingTitle", greetingService.getList().get((int) id));
+        model.addAttribute("greetingTitle", this.greetingService.getBeitrag(id));
         return "result";
     }
 }

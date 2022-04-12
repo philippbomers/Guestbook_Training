@@ -12,8 +12,8 @@ public class GreetingService {
 
     public GreetingService(BeitragRepository beitragRepository) {
         this.beitragRepository = beitragRepository;
-        this.addGreeting(new Greeting(0, "No name", "1st Greeting", "Hello!"));
-        this.addGreeting(new Greeting(1, "Nemo", "2nd Greeting", "Polyphem kann nicht zählen"));
+        this.addGreeting(new Greeting(3, "No name", "1st Greeting", "Hello!"));
+        this.addGreeting(new Greeting(4, "Nemo", "2nd Greeting", "Polyphem kann nicht zählen"));
     }
 
     public void addGreeting(Greeting greeting) {
@@ -28,5 +28,9 @@ public class GreetingService {
 
     public List<Beitrag> getList() {
         return beitragRepository.findAll();
+    }
+
+    public Beitrag getBeitrag(long id){
+        return beitragRepository.findById((int) id).get();
     }
 }
