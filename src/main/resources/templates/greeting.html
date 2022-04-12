@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Guest Book</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+  <p>Title: <input type="text" th:field="*{title}" /></p>
+  <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+  <p>Name: <input type="text" th:field="*{name}" /></p>
+  <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+  <p>Message: <input type="text" th:field="*{content}" /></p>
+  <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></p>
+  <p><input type="submit" value="Send" /> <input type="reset" value="Reset" /></p>
+</form>
+<tr th:each="greeting:${greetingList}">
+  <td >
+    <a th:href="@{/{id}/detail(id=${greeting.id})}"><span th:text="*{greeting.getTitle()}"></span></a>
+  </td>
+</tr>
+</body>
+</html>
