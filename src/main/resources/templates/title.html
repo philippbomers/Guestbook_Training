@@ -11,7 +11,7 @@
     </tr>
     <tr th:each="greeting:${greetingList}">
         <td >
-            <a th:href="@{/{id}/detail(id=${greeting.id})}"><span th:text="*{greeting.getTitle()}"></span></a>
+            <a th:href="@{/{id}/detail(id=${greeting.id})}"><span th:text="*{greeting.title}"></span></a>
         </td>
     </tr>
 </table><br>

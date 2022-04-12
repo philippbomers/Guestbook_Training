@@ -21,6 +21,7 @@ public class GreetingService {
         Beitrag beitrag = new Beitrag();
         beitrag.setTitle(greeting.getTitle());
         beitrag.setNachricht(greeting.getContent());
+        beitrag.setName(greeting.getName());
         beitragRepository.save(beitrag);
         greetingList.add(greeting);
     }
