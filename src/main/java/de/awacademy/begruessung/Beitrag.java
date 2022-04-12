@@ -16,6 +16,12 @@ public class Beitrag {
     public Beitrag() {
     }
 
+    public Beitrag(String title, String name, String nachricht) {
+        this.name = name;
+        this.nachricht = nachricht;
+        this.title = title;
+    }
+
     public int getId() {
         return id;
     }

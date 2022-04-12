@@ -18,10 +18,11 @@ public class GreetingService {
 
     public void addGreeting(Greeting greeting) {
         greeting.setId(greetingList.size());
-        Beitrag beitrag = new Beitrag();
-        beitrag.setTitle(greeting.getTitle());
-        beitrag.setNachricht(greeting.getContent());
-        beitrag.setName(greeting.getName());
+        Beitrag beitrag = new Beitrag(
+                greeting.getTitle(),
+                greeting.getContent(),
+                greeting.getName()
+        );
         beitragRepository.save(beitrag);
         greetingList.add(greeting);
     }
