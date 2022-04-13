@@ -41,7 +41,7 @@ public class GreetingController {
 
     @GetMapping("/{id}/detail")
     public String detail(Model model, @PathVariable int id) {
-        model.addAttribute("greetingTitle", this.greetingService.getBeitrag(id));
+        model.addAttribute("beitrag", this.greetingService.getBeitrag(id));
         return "result";
     }
 }

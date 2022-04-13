@@ -3,6 +3,8 @@ package de.awacademy.begruessung;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Beitrag {
@@ -12,6 +14,9 @@ public class Beitrag {
     private String name;
     private String nachricht;
     private String title;
+
+    @OneToMany(mappedBy = "beitrag")
+    private List<Kommentar> kommentare;
 
     public Beitrag() {
     }
@@ -52,5 +57,9 @@ public class Beitrag {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Kommentar> getKommentare() {
+        return kommentare;
     }
 }

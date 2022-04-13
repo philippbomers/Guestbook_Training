@@ -6,8 +6,10 @@ public class Greeting {
 
     @NotEmpty
     private String name;
+
     @NotEmpty
     private String content;
+
     @NotEmpty
     private String title;
 
